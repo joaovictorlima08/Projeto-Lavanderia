@@ -5,16 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data //Gera getters e setters
+@NoArgsConstructor // Cria construtor vazio
+@AllArgsConstructor // Cria construtor com todos os atributos
 public class InventarioDTO {
 
-    private String marca;
+    private String marca; // Marca da máquina
 
-    private Integer litragem;
+    private Integer litragem; // Capacidade em litros
 
-    private String modelo;
+    private String modelo;  // Modelo da máquina
 
-    private Double consumo;
+    private Double consumo; // Consumo de água e energia
 }
