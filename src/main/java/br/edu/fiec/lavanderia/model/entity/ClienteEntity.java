@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Clientes")
-public class Cliente {
+public class ClienteEntity {
 
     @Id
     @GeneratedValue
@@ -23,7 +23,7 @@ public class Cliente {
     @Column(nullable = false)
     private Integer quantidadeRoupas;
 
-    public Cliente(String id, ClienteDTO clienteDTO){
+    public ClienteEntity(String id, ClienteDTO clienteDTO){
         setId(Integer.valueOf(id));
         setQuantidadeRoupas(clienteDTO.getQuantidadeRoupas());
         setNome(clienteDTO.getNome());

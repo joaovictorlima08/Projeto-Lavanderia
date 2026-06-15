@@ -1,7 +1,7 @@
 package br.edu.fiec.lavanderia.controller;
 
 import br.edu.fiec.lavanderia.model.dto.ClienteDTO;
-import br.edu.fiec.lavanderia.model.entity.Cliente;
+import br.edu.fiec.lavanderia.model.entity.ClienteEntity;
 import br.edu.fiec.lavanderia.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.CREATED) // Status 201 para criação
     @PostMapping(value = "cliente", consumes = APPLICATION_JSON_VALUE)
-    public Cliente registrarCliente(@RequestBody ClienteDTO clienteDTO) {
+    public ClienteEntity registrarCliente(@RequestBody ClienteDTO clienteDTO) {
         return clienteService.registrarCliente(clienteDTO);
     }
 
@@ -36,25 +36,25 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.OK) // Status 200 para sucesso
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public List<Cliente> buscarTodos(){
+    public List<ClienteEntity> buscarTodos(){
         return clienteService.buscarTodos();
     }
 
     @ResponseStatus(HttpStatus.OK) // Status 200 para sucesso
     @GetMapping(value = "{id}", produces = APPLICATION_JSON_VALUE)
-    public Cliente buscarClientePorId(@PathVariable Integer id) {
+    public ClienteEntity buscarClientePorId(@PathVariable Integer id) {
         return clienteService.buscarClientePorId(id);
     }
 
     @ResponseStatus(HttpStatus.OK) // Status 200 para sucesso
     @GetMapping(value = "nome", produces = APPLICATION_JSON_VALUE)
-    public List<Cliente> buscarPorNome(@RequestParam String nome) {
+    public List<ClienteEntity> buscarPorNome(@RequestParam String nome) {
         return clienteService.buscarPorNome(nome);
     }
 
     @ResponseStatus(HttpStatus.OK) // Status 200 para sucesso
     @PutMapping(value = "{id}", consumes = APPLICATION_JSON_VALUE)
-    public Cliente atualizarCliente(@PathVariable Integer id, @RequestBody ClienteDTO clienteDTO) {
+    public ClienteEntity atualizarCliente(@PathVariable Integer id, @RequestBody ClienteDTO clienteDTO) {
         return clienteService.atualizarCliente(id, clienteDTO);
     }
 
